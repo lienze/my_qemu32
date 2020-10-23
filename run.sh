@@ -11,12 +11,12 @@ if [ x$1 == x"disk" ];then
 		$debug \
 		-s \
 		-kernel ../source/arch/x86/boot/bzImage \
-		-drive format=raw,file=./disk.raw \
+		-drive file=./disk.raw,format=raw,index=0,media=disk\
 		-nographic \
 		-cpu max \
 		-smp 1 \
 		-m 1024 \
-		-hdb ./hd \
+		-drive file=./hd,format=raw,index=1,media=disk \
 		-append "console=ttyS0 init=/linuxrc root=/dev/sda rw"
 elif [ x$1 == x"kdisk" ];then
 	sudo umount img
