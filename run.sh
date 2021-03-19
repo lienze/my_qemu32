@@ -17,6 +17,7 @@ if [ x$1 == x"disk" ];then
 		-smp 1 \
 		-m 1024 \
 		-drive file=./hd,format=raw,index=1,media=disk \
+		-drive file=./floppy.raw,index=0,if=floppy \
 		-append "console=ttyS0 init=/linuxrc root=/dev/sda rw"
 elif [ x$1 == x"kdisk" ];then
 	sudo umount img
